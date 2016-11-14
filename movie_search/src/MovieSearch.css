@@ -1,0 +1,27 @@
+.movies {
+  background-color: #efefef;
+  min-height: 100%;
+}
+
+.movies .container {
+  padding-top: 2%;
+}
+
+.movies .search {
+  text-align: center;
+}
+
+.movies ul {
+  list-style: none;
+  margin-top: 5%;
+}
+
+ul .movie .heading {
+  margin-top: 5%;
+}
+
+ul .movie .movie-poster {
+  height: 150px;
+  width: 135px;
+  margin-bottom: 3%;
+}

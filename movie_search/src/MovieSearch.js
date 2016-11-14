@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Request from 'superagent';
 import _ from 'lodash'
 
+import './MovieSearch.css';
+
+
 class MovieSearch extends Component {
 
   constructor(props) {
@@ -50,16 +53,30 @@ class MovieSearch extends Component {
   };
 
   render(){
+    console.log(this.state.movies);
     let movieTitles = _.map(this.state.movies, (movie) => {
-      return <li>{movie.Title}</li>
+      return(
+        <li className="movie">
+          <span className="heading col-md-8">
+            <b>
+              <a href={'https://www.google.co.in/search?q=' + movie.Title}>{movie.Title}</a>
+            </b> - {movie.Year}
+          </span>
+          <img className="movie-poster col-md-4" alt={movie.Title + ' image'} src={movie.Poster}/>
+        </li>
+      );
     });
+
     return(
-      <div className="movie">
+      <div className="movies">
         <div className="container">
-          <h2>Movie Search</h2>
-          <input ref='query' className="query" type="text" placeholder="Movie Name" value={this.state.query} onChange={this.queryStateChange.bind(this)}></input>
+          <div className="search">
+            <h2>Movie Search</h2>
+            <input className="query" type="text" placeholder="Movie Name" value={this.state.query} onChange={this.queryStateChange.bind(this)}></input>
+          </div>
+          <br />
+          <ul>{movieTitles}</ul>
         </div>
-        <ul>{movieTitles}</ul>
       </div>
     );
   };

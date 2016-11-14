@@ -56,7 +56,7 @@ class MovieSearch extends Component {
     console.log(this.state.movies);
     let movieTitles = _.map(this.state.movies, (movie) => {
       return(
-        <li className="movie">
+        <li className="movie" key={movie.imdbID}>
           <span className="heading col-md-8">
             <b>
               <a href={'https://www.google.co.in/search?q=' + movie.Title}>{movie.Title}</a>
